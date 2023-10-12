@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Películas</title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1>LISTADO DE PELÍCULAS</h1>
+    <br>
+    <p>
+        <a class="botonAgregar" href="/movies/add">Agregar una Pelicula</a>
+        <a class="botonVolver" href="/">inicio</a>
+        <a class="botonAgregar" href="/genres">Listado de Generos</a>
+    </p>
+    <br>
+    <ul>
+        <% movies.forEach(movie => { %>
+            <li>
+                <a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a>
+                <% if (movie.genre) { %>
+                    <p>Genero: <%= movie.genre?.name %> </p>
+                <% } else {  %>
+                    <p>-</p>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>
